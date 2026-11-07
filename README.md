@@ -126,54 +126,6 @@ The preprocessing stage applied one-hot encoding to the 13 categorical features 
 
 The dataset includes demographic attributes, namely age, sex-related personal status and foreign-worker status, which were used as ordinary input features. No fairness analysis was performed. The data is historical, and this project is intended for academic experimentation only; it must not be used for real-world credit approval decisions.
 
-## b. Dataset description
-
-| Item | Detail |
-|---|---|
-| Name | Statlog (German Credit Data) |
-| Source | UCI Machine Learning Repository: https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data |
-| File used | Original `german.data` (not `german.data-numeric`) |
-| Instances | 1,000 |
-| Input features | 20 (7 numerical, 13 categorical) |
-| Target | Credit risk: original label 1 = Good, 2 = Bad |
-| Class balance | 700 Good (70%), 300 Bad (30%) |
-| Missing values | None |
-| Duplicate rows | None |
-
-The raw file has no header row and stores categorical values as codes (for example `A11`, `A34`). Column names were assigned in the order given in the UCI documentation (see `src/preprocessing.py`).
-
-### Features
-
-| # | Feature name (in code) | Type | Meaning |
-|---|---|---|---|
-| 1 | status_checking_account | Categorical | Status of existing checking account |
-| 2 | duration_months | Numerical | Loan duration in months |
-| 3 | credit_history | Categorical | Past credit history |
-| 4 | purpose | Categorical | Purpose of the loan |
-| 5 | credit_amount | Numerical | Credit amount |
-| 6 | savings_account | Categorical | Savings account / bonds |
-| 7 | employment_since | Categorical | Present employment duration |
-| 8 | installment_rate | Numerical | Instalment rate as a percentage of disposable income (1 to 4) |
-| 9 | personal_status_sex | Categorical | Personal status and sex |
-| 10 | other_debtors | Categorical | Other debtors or guarantors |
-| 11 | residence_since | Numerical | Years at present residence (coded 1 to 4) |
-| 12 | property | Categorical | Property owned |
-| 13 | age_years | Numerical | Age in years |
-| 14 | other_installment_plans | Categorical | Other instalment plans |
-| 15 | housing | Categorical | Housing situation |
-| 16 | existing_credits | Numerical | Number of existing credits at this bank |
-| 17 | job | Categorical | Job category |
-| 18 | people_liable | Numerical | Number of people liable to provide maintenance |
-| 19 | telephone | Categorical | Telephone registered |
-| 20 | foreign_worker | Categorical | Foreign worker status |
-
-### Data-quality observations (from actual inspection)
-
-- No missing values and no duplicate rows.
-- The target is imbalanced (70% / 30%). A model that always predicts "Good" would reach 70% accuracy, so accuracy alone is misleading.
-- `credit_amount` is right-skewed (skewness about 1.95).
-- Four numerical columns (`installment_rate`, `residence_since`, `existing_credits`, `people_liable`) take only a few distinct values; they are treated as numbers and scaled.
-
 ## Data preprocessing and methodology
 
 1. **Target encoding:** Bad credit risk (original label 2) is encoded as **1** (positive class) and Good (original label 1) as **0**.
