@@ -1,8 +1,12 @@
 # German Credit Risk Classification (Statlog German Credit Data)
 
-Machine Learning Assignment 2: five classification models, evaluation with six metrics, and a Streamlit web application.
-Name: Amol P Shedge
-BITS ID: 2026AJ05882
+# Machine Learning Assignment 2: five classification models, evaluation with six metrics, and a Streamlit web application.
+
+# Name: Amol P Shedge
+
+# BITS ID: 2026AJ05882
+
+
 ## a. Problem statement
 
 Credit risk assessment is an important task in the financial and banking industry, as financial institutions need to evaluate the creditworthiness of individuals before granting loans or other forms of credit. Incorrect assessment of an applicant's creditworthiness can result in financial losses due to loan defaults or missed opportunities to provide credit to eligible applicants.
