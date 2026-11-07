@@ -178,7 +178,7 @@ All metrics are computed on the same held-out test set (200 rows), with **Bad cr
 | F1-score | Harmonic mean of precision and recall |
 | MCC | Matthews Correlation Coefficient: a balanced score from -1 to 1 that stays reliable with imbalanced classes |
 
-## d. Model comparison (actual results on the test set)
+## Model comparison (actual results on the test set)
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 |---|---|---|---|---|---|---|
