@@ -4,9 +4,40 @@ Machine Learning Assignment 2: five classification models, evaluation with six m
 
 ## a. Problem statement
 
-A lender must decide whether a loan applicant is a **good** or **bad credit risk** from the applicant's financial and personal details. This project builds and compares five supervised classification models that predict credit risk on the Statlog (German Credit Data) dataset.
+Credit risk assessment is an important task in the financial and banking industry, as financial institutions need to evaluate the creditworthiness of individuals before granting loans or other forms of credit. Incorrect assessment of an applicant's creditworthiness can result in financial losses due to loan defaults or missed opportunities to provide credit to eligible applicants.
 
-This is a **binary classification** problem. Because lending a loan to an applicant who later defaults is usually more costly than refusing a good applicant, **Bad credit risk is treated as the positive class**. Precision, recall and F1-score are all calculated for that class.
+Traditional credit assessment processes rely on the analysis of an applicant's financial background, credit history, employment status, and other personal and financial characteristics. Evaluating multiple attributes simultaneously can be complex and may benefit from data-driven predictive approaches.
+
+The objective of this project is to develop and evaluate supervised machine learning classification models to predict whether an individual represents a good or bad credit risk, based on a set of financial, personal, and credit-related attributes.
+
+For this purpose, the Statlog (German Credit Data) dataset from the UCI Machine Learning Repository is used. The dataset contains information about 1,000 credit applicants, represented by 20 independent input attributes, with a binary target variable indicating the applicant's credit risk category.
+
+Five supervised machine learning classification algorithms are implemented and evaluated:
+
+1. Logistic Regression
+2. Decision Tree Classifier
+3. K-Nearest Neighbors (KNN) Classifier
+4. Gaussian Naive Bayes Classifier
+5. Support Vector Machine (SVM)
+
+The models are trained and evaluated using a consistent data preprocessing methodology and a common stratified 80:20 training and testing dataset split to ensure a fair comparison.
+
+The predictive performance of each classifier is assessed using the following evaluation metrics:
+
+- Accuracy
+- Area Under the Receiver Operating Characteristic Curve (AUC)
+- Precision
+- Recall
+- F1-Score
+- Matthews Correlation Coefficient (MCC)
+
+**Positive class:** Bad credit risk (original label 2) is treated as the positive class, because failing to detect a bad applicant is usually the more costly mistake. Precision, recall and F1-score are therefore calculated for identifying bad-risk applicants.
+
+The primary objective is to compare the predictive performance of the five classification algorithms, identify their respective strengths and limitations, and determine which model provides the most suitable overall performance for the given credit risk classification problem.
+
+The project follows a reproducible machine learning classification workflow, using fixed random states, preprocessing pipelines that avoid data leakage, saved trained models, and an interactive Streamlit application for evaluation. It is an academic experiment on a historical dataset and is not intended for real-world credit approval decisions.
+
+
 
 ## b. Dataset description
 
