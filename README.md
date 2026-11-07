@@ -174,7 +174,7 @@ To reproduce the results, run `python src/train.py` from the project root.
 ## c. Links
 
 - **GitHub repository:** https://github.com/AmolAI69/German-credit-classification
-- - **Live Streamlit application:** https://german-credit-classification.streamlit.app/
+- **Live Streamlit application:** https://german-credit-classification.streamlit.app/
 
 ## How To Use App - Streamlit application
 
