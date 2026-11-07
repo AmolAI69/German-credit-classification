@@ -156,7 +156,7 @@ The SVM is a very close second: it has the best accuracy, precision and MCC, but
 
 | Path | Purpose |
 |---|---|
-| `app.py` | Streamlit application *(to be added)* |
+| `app.py` | Streamlit application: upload a test CSV, choose one of the five saved models, and view the six metrics, confusion matrix and classification report |
 | `requirements.txt` | Python dependencies |
 | `README.md` | This file |
 | `test_data.csv` | 200 held-out test rows: 20 features + `credit_risk` (1 = Good, 2 = Bad) |
@@ -174,4 +174,9 @@ To reproduce the results, run `python src/train.py` from the project root.
 ## c. Links
 
 - **GitHub repository:** https://github.com/AmolAI69/German-credit-classification
-- **Live Streamlit application:** *TO BE ADDED after deployment*
+- - **Live Streamlit application:** https://german-credit-classification.streamlit.app/
+
+## How To Use App - Streamlit application
+
+The deployed app lets you upload a test CSV (the 20 input features plus the actual target column `credit_risk`, 1 = Good, 2 = Bad), select one of the five saved models from a dropdown, and view Accuracy, AUC, Precision, Recall, F1-score, MCC, a confusion matrix and a classification report. The app only loads the saved, already-trained pipelines from `model/`; it never retrains or refits preprocessing on the uploaded data. Use `test_data.csv` from this repository for testing.
+
