@@ -38,6 +38,93 @@ The primary objective is to compare the predictive performance of the five class
 The project follows a reproducible machine learning classification workflow, using fixed random states, preprocessing pipelines that avoid data leakage, saved trained models, and an interactive Streamlit application for evaluation. It is an academic experiment on a historical dataset and is not intended for real-world credit approval decisions.
 
 
+## b. Dataset description
+
+The Statlog (German Credit Data) dataset is obtained from the UCI Machine Learning Repository. It was originally provided by Professor Hans Hofmann of the University of Hamburg and was contributed to the Statlog project in 1994.
+
+The dataset is designed for credit risk classification and contains information about individuals applying for credit. Its primary purpose is to classify applicants into two categories: good credit risk and bad credit risk, based on their financial, personal, employment, and credit-related characteristics.
+
+**Source:** https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
+
+### Dataset overview
+
+The dataset consists of 1,000 observations and 20 independent input attributes, along with one target variable representing the credit risk category. The original `german.data` file was used (not `german.data-numeric`).
+
+| Dataset Property | Description |
+|---|---|
+| Dataset Name | Statlog (German Credit Data) |
+| Repository | UCI Machine Learning Repository |
+| Domain | Banking and Financial Risk Assessment |
+| Problem Type | Binary Classification |
+| Number of Instances | 1,000 |
+| Number of Independent Features | 20 (7 numerical, 13 categorical) |
+| Target Variable | Credit Risk |
+| Target Classes | Good Credit Risk (1), Bad Credit Risk (2) |
+| Class Distribution | 700 Good (70%), 300 Bad (30%) |
+| Feature Types | Categorical and Integer |
+| Missing Values | None reported in the original UCI metadata; none found during inspection |
+| Duplicate Records | None found during inspection |
+
+The raw file has no header row and stores categorical values as codes (for example `A11`, `A34`). Column names were assigned in the order given in the UCI documentation (see `src/preprocessing.py`).
+
+### Description of input features
+
+The dataset contains 20 independent attributes that describe different aspects of a credit applicant's financial and personal profile.
+
+1. **Checking Account Status:** Indicates the applicant's existing checking account balance or whether the applicant has a checking account.
+2. **Duration:** Represents the requested credit or loan duration, measured in months.
+3. **Credit History:** Describes the applicant's previous credit history, including repayment behaviour and any past payment difficulties.
+4. **Purpose:** Indicates the purpose for which the credit is requested, such as purchasing a vehicle, furniture, household equipment, education, or business-related requirements.
+5. **Credit Amount:** Represents the amount of credit requested by the applicant.
+6. **Savings Account/Bonds:** Describes the applicant's savings account or bond balance category.
+7. **Present Employment Since:** Indicates the duration of the applicant's current employment.
+8. **Installment Rate:** Represents the percentage of disposable income allocated towards credit installments.
+9. **Personal Status and Sex:** Represents the applicant's personal status and sex category as recorded in the original dataset.
+10. **Other Debtors/Guarantors:** Indicates whether another individual, such as a co-applicant or guarantor, is associated with the credit application.
+11. **Present Residence Since:** Represents the length of time the applicant has lived at their current residence (recorded as a value from 1 to 4).
+12. **Property:** Describes the applicant's property ownership or asset category.
+13. **Age:** Represents the applicant's age in years.
+14. **Other Installment Plans:** Indicates whether the applicant has other installment arrangements with a bank or retail store.
+15. **Housing:** Describes the applicant's housing arrangement, such as renting, owning a house, or living rent-free.
+16. **Number of Existing Credits:** Indicates the number of existing credits held by the applicant at the bank.
+17. **Job:** Represents the applicant's employment or occupational category.
+18. **Number of People Liable for Maintenance:** Indicates the number of individuals financially dependent on the applicant.
+19. **Telephone:** Indicates whether the applicant has a telephone registered in their name.
+20. **Foreign Worker:** Indicates whether the applicant is classified as a foreign worker in the original dataset.
+
+### Target variable
+
+The target variable represents the credit risk category of each applicant and contains two possible classes:
+
+- **Good Credit Risk (1):** Represents applicants classified as good credit risks (700 applicants).
+- **Bad Credit Risk (2):** Represents applicants classified as bad credit risks (300 applicants).
+
+This target variable is used as the dependent variable for training and evaluating the five supervised machine learning classification algorithms. For modelling, Bad Credit Risk (original label 2) is encoded as 1 and treated as the positive class.
+
+### Dataset suitability for the project
+
+The Statlog (German Credit Data) dataset is suitable for this assignment because it satisfies the specified minimum dataset requirements:
+
+- It contains 1,000 observations, exceeding the minimum requirement of 500 instances.
+- It contains 20 independent input features, exceeding the minimum requirement of 12 features.
+- It has a clearly defined binary classification target.
+- It contains a combination of categorical and numerical attributes, providing an opportunity to apply appropriate preprocessing and feature encoding techniques.
+- It is publicly available through the UCI Machine Learning Repository.
+
+### Data-quality assessment
+
+The dataset was inspected before model development. The main findings were:
+
+- There are no missing values and no duplicate records.
+- The target is imbalanced (70% good, 30% bad), so accuracy alone is misleading; a model that always predicts "Good" would reach 70% accuracy.
+- Credit amount ranges from 250 to 18,424 (mean 3,271.26) and is right-skewed; duration ranges from 4 to 72 months; age ranges from 19 to 75 years.
+- Foreign-worker status is highly imbalanced (963 foreign workers and 37 others).
+
+The preprocessing stage applied one-hot encoding to the 13 categorical features and standardisation to the 7 numerical features, producing 61 model input columns. Preprocessing was fitted on the training data only, to avoid data leakage.
+
+### Sensitive attributes and limitation
+
+The dataset includes demographic attributes, namely age, sex-related personal status and foreign-worker status, which were used as ordinary input features. No fairness analysis was performed. The data is historical, and this project is intended for academic experimentation only; it must not be used for real-world credit approval decisions.
 
 ## b. Dataset description
 
