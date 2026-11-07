@@ -7,7 +7,7 @@
 # BITS ID: 2026AJ05882
 
 
-## a. Problem statement
+## A. Problem statement
 
 Credit risk assessment is an important task in the financial and banking industry, as financial institutions need to evaluate the creditworthiness of individuals before granting loans or other forms of credit. Incorrect assessment of an applicant's creditworthiness can result in financial losses due to loan defaults or missed opportunities to provide credit to eligible applicants.
 
@@ -43,7 +43,7 @@ The primary objective is to compare the predictive performance of the five class
 The project follows a reproducible machine learning classification workflow, using fixed random states, preprocessing pipelines that avoid data leakage, saved trained models, and an interactive Streamlit application for evaluation. It is an academic experiment on a historical dataset and is not intended for real-world credit approval decisions.
 
 
-## b. Dataset description
+## B. Dataset description
 
 The Statlog (German Credit Data) dataset is obtained from the UCI Machine Learning Repository. It was originally provided by Professor Hans Hofmann of the University of Hamburg and was contributed to the Statlog project in 1994.
 
@@ -142,7 +142,12 @@ The dataset includes demographic attributes, namely age, sex-related personal st
 4. **No data leakage:** the preprocessing is fitted on the training data only, because it sits inside each pipeline. For example, the scaler's mean for `credit_amount` equals the training mean (3189.59), not the full-data mean (3271.26).
 5. **Same split and preprocessing for all five models.** Each saved model is a complete pipeline (preprocessing + classifier), so the Streamlit app can feed raw rows directly and never refits anything.
 
-## Models used
+## C. Links
+
+- **GitHub repository:** https://github.com/AmolAI69/German-credit-classification
+- **Live Streamlit application:** https://german-credit-classification.streamlit.app/
+
+## D. Models used
 
 All models use the documented settings below. **No hyperparameter tuning was performed**, so no model is claimed to be optimised.
 
@@ -246,10 +251,7 @@ The final models were trained with scikit-learn 1.6.1 (Python 3.13).
 
 To reproduce the results, run `python src/train.py` from the project root.
 
-## c. Links
 
-- **GitHub repository:** https://github.com/AmolAI69/German-credit-classification
-- **Live Streamlit application:** https://german-credit-classification.streamlit.app/
 
 ## How To Use App - Streamlit application
 
