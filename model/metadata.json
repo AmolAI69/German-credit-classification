@@ -1,0 +1,63 @@
+{
+  "feature_names": [
+    "status_checking_account",
+    "duration_months",
+    "credit_history",
+    "purpose",
+    "credit_amount",
+    "savings_account",
+    "employment_since",
+    "installment_rate",
+    "personal_status_sex",
+    "other_debtors",
+    "residence_since",
+    "property",
+    "age_years",
+    "other_installment_plans",
+    "housing",
+    "existing_credits",
+    "job",
+    "people_liable",
+    "telephone",
+    "foreign_worker"
+  ],
+  "numerical_features": [
+    "duration_months",
+    "credit_amount",
+    "installment_rate",
+    "residence_since",
+    "age_years",
+    "existing_credits",
+    "people_liable"
+  ],
+  "categorical_features": [
+    "status_checking_account",
+    "credit_history",
+    "purpose",
+    "savings_account",
+    "employment_since",
+    "personal_status_sex",
+    "other_debtors",
+    "property",
+    "other_installment_plans",
+    "housing",
+    "job",
+    "telephone",
+    "foreign_worker"
+  ],
+  "target_column": "credit_risk",
+  "label_mapping": {
+    "1": "Good credit risk",
+    "2": "Bad credit risk (positive class)"
+  },
+  "model_files": {
+    "Logistic Regression": "logistic_regression.joblib",
+    "Decision Tree": "decision_tree.joblib",
+    "KNN": "knn.joblib",
+    "Gaussian Naive Bayes": "naive_bayes.joblib",
+    "SVM": "svm.joblib"
+  },
+  "random_state": 42,
+  "test_size": 0.2,
+  "sklearn_version": "1.9.1"
+}
